@@ -1,0 +1,132 @@
+/* Gestion de rendez-vous — page d'accueil client */
+@import url("https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap");
+
+:root {
+  --turquoise: #0B7A75;
+  --turquoise-fonce: #095F5B;
+  --encre: #0F3D3B;
+  --brume: #F1FAF8;
+  --menthe: #CFEBE7;
+  --ambre: #F4A52B;
+  --ambre-fonce: #E39413;
+  --ambre-texte: #2B1A00;
+  --alerte: #B3261E;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  background: var(--brume);
+  border-top: 6px solid var(--turquoise);
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  max-width: 52rem;
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem 3rem;
+  font-family: "Figtree", system-ui, "Segoe UI", Roboto, sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--encre);
+}
+
+/* Titre avec une petite croix médicale dessinée en CSS */
+h1 {
+  order: -2;
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  margin: 1rem 0 .75rem;
+  font-size: clamp(1.75rem, 4.5vw, 2.25rem);
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: -.01em;
+  color: var(--turquoise-fonce);
+}
+h1::before {
+  content: "";
+  flex: none;
+  width: .85em;
+  height: .85em;
+  background:
+    linear-gradient(var(--turquoise), var(--turquoise)) center / 100% 34% no-repeat,
+    linear-gradient(var(--turquoise), var(--turquoise)) center / 34% 100% no-repeat;
+}
+
+/* Lien « Retour à l'accueil » (premier paragraphe de la page) */
+body > p:first-child {
+  order: -3;
+  align-self: flex-start;
+  margin: 0;
+}
+body > p:first-child a { font-weight: 500; }
+body > p:first-child a::before {
+  content: "\2039";
+  margin-right: .4em;
+  font-size: 1.2em;
+}
+
+/* Lien secondaire (h4) affiché en pastille sous le titre */
+h4 {
+  order: -1;
+  align-self: flex-start;
+  margin: 0 0 1.5rem;
+  font-size: .95rem;
+  font-weight: 600;
+}
+h4 a {
+  display: inline-block;
+  padding: .4rem 1rem;
+  border: 1.5px solid var(--turquoise);
+  border-radius: 999px;
+  text-decoration: none;
+}
+h4 a:hover {
+  background: var(--turquoise);
+  color: #fff;
+}
+
+a {
+  color: var(--turquoise);
+  text-underline-offset: .2em;
+}
+a:hover { color: var(--turquoise-fonce); }
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 3px solid var(--turquoise-fonce);
+  outline-offset: 2px;
+}
+
+/* Liens de navigation */
+ul {
+  list-style: none;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: .75rem;
+}
+li a {
+  display: block;
+  padding: 1.1rem 1.25rem;
+  background: #fff;
+  border: 1px solid var(--menthe);
+  border-left: 6px solid var(--turquoise);
+  border-radius: 4px 12px 12px 4px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--encre);
+  text-decoration: none;
+  transition: background-color .15s;
+}
+li a:hover {
+  background: var(--menthe);
+  color: var(--encre);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}

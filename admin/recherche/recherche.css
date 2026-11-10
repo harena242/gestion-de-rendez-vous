@@ -1,0 +1,173 @@
+/* Gestion de rendez-vous — recherche des rendez-vous (espace entreprise) */
+@import url("https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap");
+
+:root {
+  --turquoise: #0B7A75;
+  --turquoise-fonce: #095F5B;
+  --encre: #0F3D3B;
+  --brume: #F1FAF8;
+  --menthe: #CFEBE7;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  background: var(--brume);
+  border-top: 6px solid var(--turquoise);
+}
+
+/* La page forme une barre de recherche : champs et boutons sur une ligne,
+   qui passe à la ligne sur petit écran */
+body {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 1rem;
+  max-width: 52rem;
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem 3rem;
+  font-family: "Figtree", system-ui, "Segoe UI", Roboto, sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--encre);
+}
+
+/* Titre avec une petite croix médicale dessinée en CSS */
+h1 {
+  order: -2;
+  flex: 0 0 100%;
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  margin: .5rem 0 .25rem;
+  font-size: clamp(1.75rem, 4.5vw, 2.25rem);
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: -.01em;
+  color: var(--turquoise-fonce);
+}
+h1::before {
+  content: "";
+  flex: none;
+  width: .85em;
+  height: .85em;
+  background:
+    linear-gradient(var(--turquoise), var(--turquoise)) center / 100% 34% no-repeat,
+    linear-gradient(var(--turquoise), var(--turquoise)) center / 34% 100% no-repeat;
+}
+
+/* Lien « Retour à l'accueil » : dernier paragraphe, affiché en premier */
+body > p:last-of-type {
+  order: -3;
+  flex: 0 0 100%;
+  margin: 0;
+}
+body > p:last-of-type a::before {
+  content: "\2039";
+  margin-right: .4em;
+  font-size: 1.2em;
+}
+
+a {
+  color: var(--turquoise);
+  font-weight: 500;
+  text-underline-offset: .2em;
+}
+a:hover { color: var(--turquoise-fonce); }
+
+/* Champs de recherche */
+p:has(input) {
+  flex: 1 1 12rem;
+  margin: 0;
+}
+label {
+  display: block;
+  margin-bottom: .3rem;
+  font-weight: 600;
+}
+input {
+  display: block;
+  width: 100%;
+  padding: .65rem .8rem;
+  font: inherit;
+  color: var(--encre);
+  background: #fff;
+  border: 1.5px solid #9ED8D3;
+  border-radius: 8px;
+}
+input:focus { border-color: var(--turquoise); }
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 3px solid var(--turquoise-fonce);
+  outline-offset: 2px;
+}
+
+/* Boutons : Rechercher en plein, Tout afficher en contour */
+button {
+  margin: 0;
+  padding: .7rem 1.25rem;
+  font: inherit;
+  font-weight: 600;
+  border: 0;
+  border-radius: 8px;
+  background: var(--turquoise);
+  color: #fff;
+  cursor: pointer;
+  transition: background-color .15s;
+}
+button:hover { background: var(--turquoise-fonce); }
+button + button {
+  background: transparent;
+  color: var(--turquoise);
+  box-shadow: inset 0 0 0 1.5px var(--turquoise);
+}
+button + button:hover {
+  background: var(--turquoise);
+  color: #fff;
+}
+
+/* Message « Aucun rendez-vous trouvé. » (affiché par le JavaScript) */
+#message-vide {
+  flex: 0 0 100%;
+  margin: 0;
+  padding: .8rem 1rem;
+  background: #fff;
+  border-left: 4px solid var(--turquoise);
+  border-radius: 0 8px 8px 0;
+}
+
+/* Tableau */
+table {
+  flex: 0 0 100%;
+  width: 100%;
+  margin-top: .5rem;
+  border: 0;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 0 1px var(--menthe);
+}
+th, td {
+  padding: .8rem 1rem;
+  text-align: left;
+  border: 0;
+}
+th {
+  background: var(--turquoise);
+  color: #fff;
+  font-weight: 600;
+}
+td { border-top: 1px solid var(--menthe); }
+tbody tr:nth-child(even) td { background: #F7FCFB; }
+
+@media (max-width: 30rem) {
+  button { flex: 1 1 8rem; }
+  th, td { padding: .65rem .6rem; font-size: .9rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}

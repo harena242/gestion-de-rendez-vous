@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="inscription.css">
+    <title>Inscription</title>
+</head>
+<body>
+    <h1>Inscription</h1>
+
+    <!-- Message d'erreur (rempli par validation.js) -->
+    <p id="message" style="color: red;"></p>
+
+    <form id="formInscription" action="inscription.php" method="POST">
+        <label for="username">Nom d'utilisateur :</label><br>
+        <input type="text" id="username" name="username" required><br><br>
+
+        <label for="email">Adresse email :</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="password">Mot de passe :</label><br>
+        <input type="password" id="password" name="password" required><br><br>
+
+        <button type="submit">S'inscrire</button>
+    </form>
+
+    <p>Vous avez déjà un compte ?</p>
+    <button type="button" onclick="window.location.href='../connexion/connexion.html'">Connexion</button>
+
+    <script src="inscription.js"></script>
+</body>
+</html>

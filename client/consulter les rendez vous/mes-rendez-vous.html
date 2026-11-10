@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="mes-rendez-vous.css">
+  <title>Mes rendez-vous</title>
+</head>
+<body>
+  <p><a href="../accueil/accueil-client.html">Retour à l'accueil</a></p>
+    <h4><a href="../recherche creneaux dispo/recherche_creneaux_dispo.html">les creneaux dispo</a></h4>
+  <h1>Mes rendez-vous</h1>
+
+  <!-- Ce message s'affiche seulement si la liste est vide -->
+  <p id="message-vide" style="display: none;">Vous n'avez aucun rendez-vous.</p>
+
+  <table border="1" cellpadding="8">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Heure de début</th>
+        <th>Heure de fin</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <!-- Le JavaScript va remplir cette partie -->
+    <tbody id="liste-rendez-vous"></tbody>
+  </table>
+
+  <script src="mes-rendez-vous.js"></script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="publier-creneaux.css">
+  <title>Publier un créneau</title>
+</head>
+<body>
+
+  <h1>Publier un créneau</h1>
+
+  <p>
+    <label for="date">Date :</label>
+    <input type="date" id="date">
+  </p>
+
+  <p>
+    <label for="heure-debut">Heure de début :</label>
+    <input type="time" id="heure-debut">
+  </p>
+
+  <p>
+    <label for="heure-fin">Heure de fin :</label>
+    <input type="time" id="heure-fin">
+  </p>
+
+  <button onclick="publier()">Publier</button>
+
+  <p><a href="accueil-admin.html">Retour à l'accueil</a></p>
+
+  <script src="publier-creneaux.js"></script>
+</body>
+</html>

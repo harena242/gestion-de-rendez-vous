@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="connexion.css">
+    <title>Connexion</title>
+</head>
+<body>
+    <h1>Connexion</h1>
+
+    <!-- Message d'erreur (rempli par connexion.js) -->
+    <p id="message-erreur" style="color: red;"></p>
+
+    <form id="form-connexion" action="connexion.php" method="POST">
+        <label for="username">Nom d'utilisateur</label><br>
+        <input type="text" id="username" name="username"><br><br>
+
+        <label for="password">Mot de passe</label><br>
+        <input type="password" id="password" name="password"><br><br>
+
+        <button type="submit">Connexion</button>
+    </form>
+
+    <p><a href="mot_de_passe_oublie.html">Mot de passe oublié ?</a></p>
+
+    <p>Pas encore de compte ?
+        <a href="../inscription/inscription.html"><button type="button">S'inscrire</button></a>
+    </p>
+
+    <script src="connexion.js"></script>
+</body>
+</html>

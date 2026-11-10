@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="recherche-creneaux-dispo.css">
+    <title>Rechercher un créneau disponible</title>
+</head>
+<body>
+    <p><a href="../accueil/accueil-client.html">Retour à l'accueil</a></p>
+    <h1>Rechercher un créneau disponible</h1>
+    <h4><a href="../consulter les rendez vous/mes-rendez-vous.html">Mes rendez vous</a></h4>
+
+    <form id="form-recherche">
+        <label for="date">Date</label>
+        <input type="date" id="date" name="date">
+        <button type="submit">Rechercher</button>
+    </form>
+
+    <p id="message"></p>
+
+    <!-- Les résultats s'affichent ici, juste sous la recherche -->
+    <div id="resultats"></div>
+
+    <script src="recherche-date-dispo.js"></script>
+    <script src="reservation-recherche-date-dispo-bloc.js"></script>
+</body>
+</html>

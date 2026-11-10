@@ -1,0 +1,160 @@
+/* Gestion de rendez-vous — page de connexion */
+@import url("https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap");
+
+:root {
+  --turquoise: #0B7A75;
+  --turquoise-fonce: #095F5B;
+  --encre: #0F3D3B;
+  --brume: #F1FAF8;
+  --menthe: #CFEBE7;
+  --alerte: #B3261E;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  background: var(--brume);
+  border-top: 6px solid var(--turquoise);
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  max-width: 30rem;
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 3rem;
+  font-family: "Figtree", system-ui, "Segoe UI", Roboto, sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--encre);
+}
+
+/* Titre avec une petite croix médicale dessinée en CSS */
+h1 {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  margin: 0 0 1.25rem;
+  font-size: clamp(1.75rem, 4.5vw, 2.25rem);
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: -.01em;
+  color: var(--turquoise-fonce);
+}
+h1::before {
+  content: "";
+  flex: none;
+  width: .85em;
+  height: .85em;
+  background:
+    linear-gradient(var(--turquoise), var(--turquoise)) center / 100% 34% no-repeat,
+    linear-gradient(var(--turquoise), var(--turquoise)) center / 34% 100% no-repeat;
+}
+
+/* Message d'erreur (rempli par connexion.js) */
+#message-erreur {
+  margin: 0 0 1.25rem;
+  padding: .8rem 1rem;
+  background: #FDECEA;
+  border-left: 4px solid var(--alerte);
+  border-radius: 0 8px 8px 0;
+  color: var(--alerte) !important; /* remplace le rouge du style en ligne */
+}
+#message-erreur:empty { display: none; }
+
+/* Formulaire */
+form {
+  padding: 1.5rem;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 0 0 1px var(--menthe);
+}
+form br { display: none; }
+
+label {
+  display: block;
+  margin-bottom: .3rem;
+  font-weight: 600;
+}
+input {
+  display: block;
+  width: 100%;
+  margin-bottom: 1.1rem;
+  padding: .65rem .8rem;
+  font: inherit;
+  color: var(--encre);
+  background: #fff;
+  border: 1.5px solid #9ED8D3;
+  border-radius: 8px;
+}
+input:focus { border-color: var(--turquoise); }
+
+a {
+  color: var(--turquoise);
+  text-underline-offset: .2em;
+}
+a:hover { color: var(--turquoise-fonce); }
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 3px solid var(--turquoise-fonce);
+  outline-offset: 2px;
+}
+
+/* Boutons */
+button {
+  font: inherit;
+  font-weight: 600;
+  padding: .65rem 1.25rem;
+  border: 0;
+  border-radius: 8px;
+  background: var(--turquoise);
+  color: #fff;
+  cursor: pointer;
+  transition: background-color .15s;
+}
+button:hover { background: var(--turquoise-fonce); }
+button:disabled {
+  opacity: .55;
+  cursor: not-allowed;
+}
+
+/* Connexion : pleine largeur, c'est l'action principale */
+form button {
+  width: 100%;
+  margin-top: .25rem;
+  padding: .75rem 1.25rem;
+}
+
+/* Lien « Mot de passe oublié ? » */
+form + p {
+  margin: 1rem 0 0;
+}
+
+/* « Pas encore de compte ? » + bouton S'inscrire en contour */
+form + p + p {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .75rem;
+  margin: 1.5rem 0 0;
+}
+form + p + p a { text-decoration: none; }
+p button {
+  background: transparent;
+  color: var(--turquoise);
+  box-shadow: inset 0 0 0 1.5px var(--turquoise);
+}
+p button:hover {
+  background: var(--turquoise);
+  color: #fff;
+}
+
+@media (max-width: 30rem) {
+  body { padding-top: 1.5rem; }
+  form { padding: 1.15rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="recherche.css">
+  <title>Rechercher les rendez-vous</title>
+</head>
+<body>
+
+  <h1>Rechercher les rendez-vous</h1>
+
+  <p>
+    <label for="nom">Nom d'utilisateur :</label>
+    <input type="text" id="nom">
+  </p>
+
+  <p>
+    <label for="date">Date :</label>
+    <input type="date" id="date">
+  </p>
+
+  <button onclick="rechercher()">Rechercher</button>
+  <button onclick="toutAfficher()">Tout afficher</button>
+
+  <!-- Ce message s'affiche seulement si aucun rendez-vous n'est trouvé -->
+  <p id="message-vide" style="display: none;">Aucun rendez-vous trouvé.</p>
+
+  <table border="1" cellpadding="8">
+    <thead>
+      <tr>
+        <th>Nom d'utilisateur</th>
+        <th>Date</th>
+        <th>Heure de début</th>
+        <th>Heure de fin</th>
+      </tr>
+    </thead>
+    <!-- Le JavaScript va remplir cette partie -->
+    <tbody id="liste-rendez-vous"></tbody>
+  </table>
+
+  <p><a href="../accueil-admin.html">Retour à l'accueil</a></p>
+
+  <script src="recherche-rendez-vous.js"></script>
+</body>
+</html>

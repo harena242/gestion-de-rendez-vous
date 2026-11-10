@@ -1,0 +1,122 @@
+/* Gestion de rendez-vous — publier un créneau (espace entreprise) */
+@import url("https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap");
+
+:root {
+  --turquoise: #0B7A75;
+  --turquoise-fonce: #095F5B;
+  --encre: #0F3D3B;
+  --brume: #F1FAF8;
+  --menthe: #CFEBE7;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  background: var(--brume);
+  border-top: 6px solid var(--turquoise);
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  max-width: 30rem;
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem 3rem;
+  font-family: "Figtree", system-ui, "Segoe UI", Roboto, sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--encre);
+}
+
+/* Titre avec une petite croix médicale dessinée en CSS */
+h1 {
+  order: -2;
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  margin: 1rem 0 1.5rem;
+  font-size: clamp(1.75rem, 4.5vw, 2.25rem);
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: -.01em;
+  color: var(--turquoise-fonce);
+}
+h1::before {
+  content: "";
+  flex: none;
+  width: .85em;
+  height: .85em;
+  background:
+    linear-gradient(var(--turquoise), var(--turquoise)) center / 100% 34% no-repeat,
+    linear-gradient(var(--turquoise), var(--turquoise)) center / 34% 100% no-repeat;
+}
+
+/* Lien « Retour à l'accueil » : dernier paragraphe, affiché en premier */
+body > p:last-of-type {
+  order: -3;
+  align-self: flex-start;
+  margin: 0;
+}
+body > p:last-of-type a::before {
+  content: "\2039";
+  margin-right: .4em;
+  font-size: 1.2em;
+}
+
+a {
+  color: var(--turquoise);
+  font-weight: 500;
+  text-underline-offset: .2em;
+}
+a:hover { color: var(--turquoise-fonce); }
+
+/* Champs */
+p:has(input) { margin: 0 0 1.1rem; }
+
+label {
+  display: block;
+  margin-bottom: .3rem;
+  font-weight: 600;
+}
+input {
+  display: block;
+  width: 100%;
+  padding: .65rem .8rem;
+  font: inherit;
+  color: var(--encre);
+  background: #fff;
+  border: 1.5px solid #9ED8D3;
+  border-radius: 8px;
+}
+input:focus { border-color: var(--turquoise); }
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 3px solid var(--turquoise-fonce);
+  outline-offset: 2px;
+}
+
+/* Bouton Publier : pleine largeur, c'est l'action de la page */
+button {
+  width: 100%;
+  margin-top: .4rem;
+  padding: .75rem 1.25rem;
+  font: inherit;
+  font-weight: 600;
+  border: 0;
+  border-radius: 8px;
+  background: var(--turquoise);
+  color: #fff;
+  cursor: pointer;
+  transition: background-color .15s;
+}
+button:hover { background: var(--turquoise-fonce); }
+button:disabled {
+  opacity: .55;
+  cursor: not-allowed;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
